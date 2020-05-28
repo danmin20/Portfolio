@@ -33,12 +33,23 @@ const Title = styled.p`
   font-size: 50px;
   font-family: "Open Sans Condensed", sans-serif;
 `;
+const Info = styled.div`
+  color: white;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 30px;
+`;
 
 function Header() {
   const [IsOpened, setIsOpened] = useState(false);
+  const handleOpen = () => {
+    setIsOpened(true);
+  };
+  const handleNotOpen = () => {
+    setIsOpened(false);
+  };
   return (
     <div>
-      <Main>
+      <Main onMouseEnter={handleOpen} onMouseLeave={handleNotOpen}>
         <Title>
           JavaScript
           <br />
@@ -46,6 +57,18 @@ function Header() {
           <br />
           Developer
         </Title>
+        <div>
+          {IsOpened && (
+            <Info>
+              DANMIN20
+              <br />
+              Jeongmin Lee
+              <br />
+              <br />
+              danmin20@khu.ac.kr
+            </Info>
+          )}
+        </div>
       </Main>
       <List />
     </div>
