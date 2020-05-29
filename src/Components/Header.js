@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import List from "./List";
+import Portfolio from "./Portfolio";
 
 const Main = styled.div`
   width: auto;
@@ -64,7 +64,7 @@ function Header() {
           )}
         </div>
       </Main>
-      <List />
+      <Portfolio />
     </div>
   );
 }
