@@ -20,18 +20,18 @@ const Title = styled.p`
       width: 0%;
     }
     100% {
-      width: 450px;
+      width: 600px;
     }
   }
   position: relative;
   display: inline-block;
   overflow: hidden;
-  animation: typingAni 8s steps(60, end) 1;
+  animation: typingAni 8s steps(30, end) 1;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 50px;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 80px;
+  font-family: "Lobster", cursive;
 `;
 const Info = styled.div`
   color: white;
@@ -50,13 +50,7 @@ function Header() {
   return (
     <div>
       <Main onMouseEnter={handleOpen} onMouseLeave={handleNotOpen}>
-        <Title>
-          JavaScript
-          <br />
-          Fullstack
-          <br />
-          Developer
-        </Title>
+        <Title>Developer</Title>
         <div>
           {IsOpened && (
             <Info>
