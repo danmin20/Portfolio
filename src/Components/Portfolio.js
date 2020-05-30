@@ -16,6 +16,7 @@ const CardStyle = styled.div`
   margin: 50px;
   transition: 1s;
   position: relative;
+  cursor: pointer;
   :hover {
     transform: scale(1.05);
     height: 200px;
@@ -29,15 +30,30 @@ const Content = styled.div`
   font-family: "Lobster", cursive;
 `;
 const Name = styled.div`
-margin-top: 20px;
+  margin-top: 20px;
   font-size: 40px;
 `;
 const Date = styled.div`
-  margin-top: 20px;
   font-size: 10px;
+  margin-top: 15px;
+`;
+const Tech = styled.div`
+  font-size: 15px;
+`;
+const Info = styled.div`
+  @keyframes apperAni {
+    0% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100px;
+    }
+  }
+  margin-top: 20px;
+  animation: apperAni 2s steps(30, end) 1;
 `;
 
-const Card = ({ name, date }) => {
+const Card = ({ name, date, tech }) => {
   const [IsShown, setIsShown] = useState(false);
   const handleShown = () => {
     setIsShown(true);
@@ -49,7 +65,11 @@ const Card = ({ name, date }) => {
     <CardStyle onMouseEnter={handleShown} onMouseLeave={handleNotShow}>
       <Content>
         <Name>{name}</Name>
-        {IsShown && <Date>{date}</Date>}
+        {IsShown && (
+          <Info>
+            <Tech>{tech}</Tech> <Date>{date}</Date>
+          </Info>
+        )}
       </Content>
     </CardStyle>
   );
@@ -62,7 +82,7 @@ function Portfolio() {
   return (
     <Container>
       {list.map((a) => (
-        <Card name={a.name} date={a.date} />
+        <Card name={a.name} date={a.date} tech={a.tech} />
       ))}
     </Container>
   );
